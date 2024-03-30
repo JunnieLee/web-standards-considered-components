@@ -9,13 +9,17 @@
   - 그가 실제로 유효한지를 확인하기 위한 UI 자동화 테스트를 작성합니다.
 - 웹표준을 고려한 컴포넌트를 만들기 위해 거쳐갔던 질문들과 그에 대한 답변들도 함께 기록합니다.
 
+# 🛠️ 사용한 기술스택
+
+- Next.js 14, React, Typescript, Cypress (추후 추가 및 수정 예정...)
+
 # 📄 문서 링크
 
-## 기본 개념
+### 기본 개념
 
 - [🗝️ [키워드] ‐ 크로스 브라우징, 웹표준, 시멘틱 태그](https://github.com/JunnieLee/web-standards-considered-components/wiki/%F0%9F%97%9D%EF%B8%8F-%5B%ED%82%A4%EC%9B%8C%EB%93%9C%5D-%E2%80%90-%ED%81%AC%EB%A1%9C%EC%8A%A4-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A7%95,-%EC%9B%B9%ED%91%9C%EC%A4%80,-%EC%8B%9C%EB%A9%98%ED%8B%B1-%ED%83%9C%EA%B7%B8)
 
-## 컴포넌트 상세
+### 컴포넌트 상세
 
 - Preview-Card-With-Link
 - Multi-Step-Form
