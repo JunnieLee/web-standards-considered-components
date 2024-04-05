@@ -21,6 +21,8 @@
 
 - [🗣️ 웹 접근성과 시멘틱 관점에서의 button 태그](https://github.com/JunnieLee/web-standards-considered-components/wiki/%F0%9F%97%A3%EF%B8%8F-%EC%9B%B9-%EC%A0%91%EA%B7%BC%EC%84%B1%EA%B3%BC-%EC%8B%9C%EB%A9%98%ED%8B%B1-%EA%B4%80%EC%A0%90%EC%97%90%EC%84%9C%EC%9D%98-button%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B4%80%EB%A0%A8-%EC%A7%88%EB%AC%B8%E2%80%90%EB%8B%B5%EB%B3%80)
 
+- [🗣️ 웹 접근성과 시멘틱 관점에서의 input & label](https://github.com/JunnieLee/web-standards-considered-components/wiki/%F0%9F%97%A3%EF%B8%8F-%EC%9B%B9-%EC%A0%91%EA%B7%BC%EC%84%B1%EA%B3%BC-%EC%8B%9C%EB%A9%98%ED%8B%B1-%EA%B4%80%EC%A0%90%EC%97%90%EC%84%9C%EC%9D%98-input-&-label-%EA%B4%80%EB%A0%A8-%EC%A7%88%EB%AC%B8%E2%80%90%EB%8B%B5%EB%B3%80)
+
 ### 컴포넌트 상세
 
 - Preview-Card-With-Link
