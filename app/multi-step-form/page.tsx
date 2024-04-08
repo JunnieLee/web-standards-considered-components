@@ -5,7 +5,7 @@ import { FormContainer } from "./_components/FormContainer";
 
 export default function multiStepFormPage() {
   const pageTitle = (
-    <p
+    <header
       style={{
         fontSize: 40,
         paddingTop: 20,
@@ -14,11 +14,11 @@ export default function multiStepFormPage() {
       }}
     >
       Multi-Step-Form Page
-    </p>
+    </header>
   );
 
   const guideSection = (
-    <div
+    <section
       style={{
         display: "flex",
         width: 550,
@@ -37,23 +37,23 @@ export default function multiStepFormPage() {
       <p>
         4. 폼에 한 글자를 입력할 때마다 폼 전체가 리렌더링되어서는 안 됩니다.
       </p>
-    </div>
+    </section>
   );
 
   return (
-    <main
+    <div
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
+        flex: 1,
         padding: 40,
         justifyContent: "flex-start",
         alignItems: "center",
       }}
     >
-      <header>{pageTitle}</header>
-      <section>{guideSection}</section>
+      {pageTitle}
+      {guideSection}
       <FormContainer />
-    </main>
+    </div>
   );
 }

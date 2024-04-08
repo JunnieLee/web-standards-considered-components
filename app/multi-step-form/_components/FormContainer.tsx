@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
+import SideBarBackgroundDesktop from "@assets/images/bg-sidebar-desktop.svg";
 
 const _FormContainer = () => {
   const [step, setStep] = useState<number>(1); // step 1~ step 4 까지 있음
 
-  return (
-    <>
+  const tmpPlaceHolder = (
+    <section style={{ display: "flex", flexDirection: "column", padding: 20 }}>
       <label>
         Text input: <input name="myInput" defaultValue="Some initial value" />
       </label>
@@ -36,7 +38,36 @@ const _FormContainer = () => {
           Option 3
         </label>
       </p>
-    </>
+    </section>
+  );
+
+  return (
+    <main
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        backgroundColor: "white",
+        width: "65vw",
+        borderRadius: 11,
+        padding: 15,
+        marginTop: 20,
+        marginBottom: 50,
+        boxShadow: "2px 2px 2px 2px gray",
+      }}
+    >
+      <aside>
+        <Image
+          src={SideBarBackgroundDesktop}
+          alt="sideBarBackground"
+          style={{
+            width: "100%",
+            height: "auto",
+            alignSelf: "center",
+          }}
+        />
+      </aside>
+      {tmpPlaceHolder}
+    </main>
   );
 };
 
