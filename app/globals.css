@@ -105,3 +105,19 @@ a {
     color-scheme: dark;
   }
 }
+
+a[aria-current="page"] {
+  cursor: initial;
+  color: purple;
+}
+
+section[aria-current="false"] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+}
+
+label:has(input:checked) {
+  
+}
