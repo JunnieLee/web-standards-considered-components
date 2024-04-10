@@ -44,6 +44,7 @@ export const FormContainer = () => {
     } else {
       // TODO :
       // 데이터 모두 수합해서 실제 서버에 submit
+      alert(JSON.stringify(formState)); // tmp
     }
   };
 
@@ -100,7 +101,7 @@ export const FormContainer = () => {
 
   return (
     <main className={styles.main}>
-      <nav>
+      <nav className={styles.navContainer}>
         <ul>
           <li>
             <Link
@@ -121,7 +122,6 @@ export const FormContainer = () => {
         </ul>
       </nav>
       {mainContent}
-      {JSON.stringify(formState)}
     </main>
   );
 };

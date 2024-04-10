@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   background-color: white;
   width: 60vw;
   height: 550px;
@@ -13,6 +14,16 @@
 
 .stepSection {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  padding: 20;
+  padding: 30px;
+  background: gray;
+  border-radius: 11px;
+  margin-left: 15px;
+}
+
+.navContainer {
+  padding: 30px;
+  background-color: pink;
+  border-radius: 11px;
 }
