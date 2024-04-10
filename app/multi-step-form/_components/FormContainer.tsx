@@ -5,6 +5,9 @@ import React, { useId, useState } from "react";
 import styles from "./formContainer.module.css";
 import Image from "next/image";
 import SideBarBackgroundDesktop from "@assets/images/bg-sidebar-desktop.svg";
+import IconArcade from "@assets/icons/icon-arcade.svg";
+import IconAdvanced from "@assets/icons/icon-advanced.svg";
+import IconPro from "@assets/icons/icon-pro.svg";
 import { useRouter, useSearchParams } from "next/navigation";
 
 /**
@@ -115,6 +118,12 @@ export const FormContainer = () => {
               defaultChecked
               className={styles.hidden}
             />
+            <Image
+              src={IconArcade}
+              alt="basic-plan-image"
+              className={styles.planIcon}
+            />
+            <p>10,000원/(월)</p>
           </label>
           <label className={styles.card}>
             플러스
@@ -124,6 +133,12 @@ export const FormContainer = () => {
               value="plus"
               className={styles.hidden}
             />
+            <Image
+              src={IconAdvanced}
+              alt="plus-plan-image"
+              className={styles.planIcon}
+            />
+            <p>18,000원/(월)</p>
           </label>
           <label className={styles.card}>
             프로
@@ -133,8 +148,23 @@ export const FormContainer = () => {
               value="pro"
               className={styles.hidden}
             />
+            <Image
+              src={IconPro}
+              alt="pro-plan-image"
+              className={styles.planIcon}
+            />
+            <p>25,000원/(월)</p>
           </label>
         </section>
+        <button
+          type="button"
+          onClick={() => {
+            router.push("/multi-step-form?step=1");
+          }}
+          className={styles.goBackButton}
+        >
+          이전 단계
+        </button>
         <button type="submit" className={styles.submitButton}>
           다음 단계
         </button>

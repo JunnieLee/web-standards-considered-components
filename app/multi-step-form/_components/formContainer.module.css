@@ -58,6 +58,17 @@
   bottom: 30px;
 }
 
+.goBackButton {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: gray;
+  border: 0px;
+  border-radius: 5px;
+  position: absolute;
+  left: 2vw;
+  bottom: 30px;
+}
+
 .card {
   padding: 20px;
   width: 150px;
@@ -67,6 +78,8 @@
   margin: 15px;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .hidden {
@@ -79,4 +92,12 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.planIcon {
+  width: 70px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: auto;
+  alignself: center;
 }
