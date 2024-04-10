@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useId, useState } from "react";
+import styles from "./formContainer.module.css";
 import Image from "next/image";
 import SideBarBackgroundDesktop from "@assets/images/bg-sidebar-desktop.svg";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -28,112 +29,77 @@ export const FormContainer = () => {
   const step = parseInt(searchParams.get("step") ?? "1");
   const id = useId();
 
-  const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    phoneNumber: "",
-  });
+  const [formState, setFormState] = useState({});
 
-  const tmpPlaceHolder = (
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    // formData.entries() -> ex. [["username","김태희"],["email","rabolution@gmail.com"],["phoneNumber","010-4827-1733"]]
+    setFormState((old) => ({
+      ...old,
+      ...Object.fromEntries(formData), // ex. {"username":"김태희","email":"rabolution@gmail.com","phoneNumber":"010-4827-1733"}
+    }));
+    if (step < 4) {
+      router.push("/multi-step-form?step=" + (step + 1));
+    } else {
+      // TODO :
+      // 데이터 모두 수합해서 실제 서버에 submit
+    }
+  };
+
+  const step1Content = (
+    <section
+      className={styles.stepSection}
+      aria-labelledby={id + "-title" + 1}
+      aria-describedby={id + "-description" + 1}
+      aria-current={step === 1 ? "step" : "false"}
+    >
+      <form onSubmit={(event) => handleOnSubmit(event)}>
+        <h3 id={id + "-title" + 1}>개인 정보</h3>
+        <p id={id + "-description" + 1}>
+          고객님의 이름, 이메일 주소, 전화번호를 입력해주세요.
+        </p>
+        <label>
+          이름
+          <input name="username" placeholder="예) 홍길동" />
+        </label>
+        <label>
+          이메일 주소
+          <input name="email" placeholder="예) test@test.com" />
+        </label>
+        <label>
+          전화번호
+          <input name="phoneNumber" placeholder="예) 010-1234-5678" />
+        </label>
+        <button type="submit">Next Step</button>
+      </form>
+    </section>
+  );
+
+  const step2content = (
+    <section
+      className={styles.stepSection}
+      aria-labelledby={id + "-title" + 2}
+      aria-describedby={id + "-description" + 2}
+      aria-current={step === 2 ? "step" : "false"}
+    >
+      <form onSubmit={(event) => handleOnSubmit(event)}>
+        <h3 id={id + "-title" + 2}>플랜 선택</h3>
+
+        <button type="submit">Next Step</button>
+      </form>
+    </section>
+  );
+
+  const mainContent = (
     <>
-      {step === 1 && (
-        <section
-          style={{ display: "flex", flexDirection: "column", padding: 20 }}
-          aria-labelledby={id + "-title"}
-          aria-describedby={id + "-description"}
-          aria-current={step === 1 ? "step" : "false"}
-        >
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              const formData = new FormData(event.currentTarget);
-              // formData.entries()
-              // [["username","김태희"],["email","rabolution@gmail.com"],["phoneNumber","010-4827-1733"]]
-              setFormState((old) => ({
-                ...old,
-                ...Object.fromEntries(formData),
-              }));
-              // {"username":"김태희","email":"rabolution@gmail.com","phoneNumber":"010-4827-1733"}
-              router.push("/multi-step-form?step=2");
-            }}
-          >
-            <h3 id={id + "-title"}>개인 정보</h3>
-            <p id={id + "-description"}>
-              고객님의 이름, 이메일 주소, 전화번호를 입력해주세요.
-            </p>
-            <label>
-              이름
-              <input
-                name="username"
-                placeholder="예) 홍길동"
-                defaultValue={formState.username}
-              />
-            </label>
-
-            <label>
-              이메일 주소
-              <input
-                name="email"
-                placeholder="예) test@test.com"
-                defaultValue={formState.email}
-              />
-            </label>
-
-            <label>
-              전화번호
-              <input
-                name="phoneNumber"
-                placeholder="예) 010-1234-5678"
-                defaultValue={formState.phoneNumber}
-              />
-            </label>
-            <button type="submit">Next Step</button>
-          </form>
-        </section>
-      )}
-      {step === 2 && (
-        <section
-          style={{ display: "flex", flexDirection: "column", padding: 20 }}
-          aria-labelledby={id + "-title"}
-          aria-describedby={id + "-description"}
-          aria-current={step === 2 ? "step" : "false"}
-        >
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              const formData = new FormData(event.currentTarget);
-              // formData.entries()
-              // [["username","김태희"],["email","rabolution@gmail.com"],["phoneNumber","010-4827-1733"]]
-              Object.fromEntries(formData);
-              // {"username":"김태희","email":"rabolution@gmail.com","phoneNumber":"010-4827-1733"}
-              router.push("/multi-step-form?step=3");
-            }}
-          >
-            <h3 id={id + "-title"}>플랜 선택</h3>
-
-            <button type="submit">Next Step</button>
-          </form>
-        </section>
-      )}
+      {step1Content}
+      {step2content}
     </>
   );
 
-  // http://localhost:3000/multi-step-form?username=%EA%B9%80%ED%83%9C%ED%9D%AC&email=rabolution-gmail.com&phoneNumber=010-4827-1733
-
   return (
-    <main
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        backgroundColor: "white",
-        width: "65vw",
-        borderRadius: 11,
-        padding: 15,
-        marginTop: 20,
-        marginBottom: 50,
-        boxShadow: "2px 2px 2px 2px gray",
-      }}
-    >
+    <main className={styles.main}>
       <nav>
         <ul>
           <li>
@@ -154,7 +120,7 @@ export const FormContainer = () => {
           </li>
         </ul>
       </nav>
-      {tmpPlaceHolder}
+      {mainContent}
       {JSON.stringify(formState)}
     </main>
   );
