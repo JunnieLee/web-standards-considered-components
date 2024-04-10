@@ -56,23 +56,29 @@ export const FormContainer = () => {
       aria-current={step === 1 ? "step" : "false"}
     >
       <form onSubmit={(event) => handleOnSubmit(event)}>
-        <h3 id={id + "-title" + 1}>개인 정보</h3>
-        <p id={id + "-description" + 1}>
+        <h3 id={id + "-title" + 1} className={styles.headerText}>
+          개인 정보
+        </h3>
+        <p id={id + "-description" + 1} className={styles.descriptionText}>
           고객님의 이름, 이메일 주소, 전화번호를 입력해주세요.
         </p>
-        <label>
-          이름
-          <input name="username" placeholder="예) 홍길동" />
-        </label>
-        <label>
-          이메일 주소
-          <input name="email" placeholder="예) test@test.com" />
-        </label>
-        <label>
-          전화번호
-          <input name="phoneNumber" placeholder="예) 010-1234-5678" />
-        </label>
-        <button type="submit">Next Step</button>
+        <section className={styles.mainContent}>
+          <label>
+            이름
+            <input name="username" placeholder="예) 홍길동" />
+          </label>
+          <label>
+            이메일 주소
+            <input name="email" placeholder="예) test@test.com" />
+          </label>
+          <label>
+            전화번호
+            <input name="phoneNumber" placeholder="예) 010-1234-5678" />
+          </label>
+        </section>
+        <button type="submit" className={styles.submitButton}>
+          다음 단계
+        </button>
       </form>
     </section>
   );
@@ -85,8 +91,12 @@ export const FormContainer = () => {
       aria-current={step === 2 ? "step" : "false"}
     >
       <form onSubmit={(event) => handleOnSubmit(event)}>
-        <h3 id={id + "-title" + 2}>플랜 선택</h3>
-
+        <h3 id={id + "-title" + 2} className={styles.headerText}>
+          플랜 선택
+        </h3>
+        <p id={id + "-description" + 2} className={styles.descriptionText}>
+          연 단위, 달 단위의 플랜을 선택하실 수 있습니다.
+        </p>
         <button type="submit">Next Step</button>
       </form>
     </section>

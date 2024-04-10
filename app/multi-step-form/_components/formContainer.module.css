@@ -16,14 +16,43 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 30px;
+  padding: 40px;
   background: gray;
   border-radius: 11px;
   margin-left: 15px;
+  position: relative;
 }
 
 .navContainer {
   padding: 30px;
   background-color: pink;
   border-radius: 11px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+}
+
+.headerText {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.descriptionText {
+  font-size: 18px;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  font-size: 15px;
+  background: navy;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  position: absolute;
+  right: 2vw;
 }

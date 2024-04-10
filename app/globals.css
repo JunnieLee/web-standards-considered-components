@@ -123,5 +123,18 @@ section[aria-current="false"] {
   border-width: 0;
 }
 
+label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+input {
+  display: block;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0px;
+}
+
 label:has(input:checked) {
 }
