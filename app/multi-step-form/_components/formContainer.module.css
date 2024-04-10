@@ -55,4 +55,24 @@
   border-radius: 5px;
   position: absolute;
   right: 2vw;
+  bottom: 30px;
+}
+
+.card {
+  padding: 20px;
+  width: 150px;
+  height: 200px;
+  background: white;
+  border-radius: 12px;
+  margin: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: block;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0px;
 }

@@ -136,5 +136,11 @@ input {
   border: 0px;
 }
 
+li {
+  padding-bottom: 15px;
+}
+
 label:has(input:checked) {
+  border: solid 3px #d19cf0;
+  background: #e3ccf0;
 }
