@@ -156,6 +156,15 @@ export const FormContainer = () => {
             <p>25,000원/(월)</p>
           </label>
         </section>
+        <label className={styles.planToggleSection}>
+          <span className={styles.pros}>Monthly</span>
+          <input
+            type="checkbox"
+            name="payment-interval-monthly"
+            defaultChecked
+          />
+          <span className={styles.cons}>Yearly</span>
+        </label>
         <button
           type="button"
           onClick={() => {

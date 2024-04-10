@@ -101,3 +101,31 @@
   height: auto;
   alignself: center;
 }
+
+.planToggleSection {
+  width: "100%";
+  background: lightGray;
+  border-radius: 11px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pros {
+  margin-right: 10px;
+  font-weight: 400;
+}
+
+label:has(input:checked) .pros {
+  font-weight: 600;
+}
+
+.cons {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+label:has(input:checked) .cons {
+  font-weight: 400;
+}
