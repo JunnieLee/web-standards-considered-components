@@ -84,7 +84,7 @@ export const FormContainer = () => {
     </section>
   );
 
-  const step2content = (
+  const step2Content = (
     <section
       className={styles.stepSection}
       aria-labelledby={id + "-title" + 2}
@@ -108,15 +108,31 @@ export const FormContainer = () => {
         >
           <label className={styles.card}>
             베이직
-            <input type="radio" name="plan" value="basic" defaultChecked />
+            <input
+              type="radio"
+              name="plan"
+              value="basic"
+              defaultChecked
+              className={styles.hidden}
+            />
           </label>
           <label className={styles.card}>
             플러스
-            <input type="radio" name="plan" value="plus" />
+            <input
+              type="radio"
+              name="plan"
+              value="plus"
+              className={styles.hidden}
+            />
           </label>
           <label className={styles.card}>
             프로
-            <input type="radio" name="plan" value="pro" />
+            <input
+              type="radio"
+              name="plan"
+              value="pro"
+              className={styles.hidden}
+            />
           </label>
         </section>
         <button type="submit" className={styles.submitButton}>
@@ -129,7 +145,8 @@ export const FormContainer = () => {
   const mainContent = (
     <>
       {step1Content}
-      {step2content}
+      {step2Content}
+      {JSON.stringify(formState)}
     </>
   );
 
