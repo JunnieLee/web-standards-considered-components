@@ -3,12 +3,9 @@
 import Link from "next/link";
 import React, { useId, useState } from "react";
 import styles from "./formContainer.module.css";
-import Image from "next/image";
-import SideBarBackgroundDesktop from "@assets/images/bg-sidebar-desktop.svg";
-import IconArcade from "@assets/icons/icon-arcade.svg";
-import IconAdvanced from "@assets/icons/icon-advanced.svg";
-import IconPro from "@assets/icons/icon-pro.svg";
 import { useRouter, useSearchParams } from "next/navigation";
+import { FormStepOne } from "./FormStepOne";
+import { FormStepTwo } from "./FormStepTwo";
 
 /**
  * 주문이나, 온보딩을 하는 폼
@@ -52,169 +49,47 @@ export const FormContainer = () => {
     }
   };
 
-  const step1Content = (
-    <section
-      className={styles.stepSection}
-      aria-labelledby={id + "-title" + 1}
-      aria-describedby={id + "-description" + 1}
-      aria-current={step === 1 ? "step" : "false"}
-    >
-      <form onSubmit={(event) => handleOnSubmit(event)}>
-        <h3 id={id + "-title" + 1} className={styles.headerText}>
-          개인 정보
-        </h3>
-        <p id={id + "-description" + 1} className={styles.descriptionText}>
-          고객님의 이름, 이메일 주소, 전화번호를 입력해주세요.
-        </p>
-        <section className={styles.mainContent}>
-          <label>
-            이름
-            <input name="username" placeholder="예) 홍길동" />
-          </label>
-          <label>
-            이메일 주소
-            <input name="email" placeholder="예) test@test.com" />
-          </label>
-          <label>
-            전화번호
-            <input name="phoneNumber" placeholder="예) 010-1234-5678" />
-          </label>
-        </section>
-        <button type="submit" className={styles.submitButton}>
-          다음 단계
-        </button>
-      </form>
-    </section>
-  );
-
-  const step2Content = (
-    <section
-      className={styles.stepSection}
-      aria-labelledby={id + "-title" + 2}
-      aria-describedby={id + "-description" + 2}
-      aria-current={step === 2 ? "step" : "false"}
-    >
-      <form onSubmit={(event) => handleOnSubmit(event)}>
-        <h3 id={id + "-title" + 2} className={styles.headerText}>
-          플랜 선택
-        </h3>
-        <p id={id + "-description" + 2} className={styles.descriptionText}>
-          연 단위, 달 단위의 플랜을 선택하실 수 있습니다.
-        </p>
-        <section
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flex: 1,
-            marginTop: 20,
-          }}
-        >
-          <label className={styles.card}>
-            베이직
-            <input
-              type="radio"
-              name="plan"
-              value="basic"
-              defaultChecked
-              className={styles.hidden}
-            />
-            <Image
-              src={IconArcade}
-              alt="basic-plan-image"
-              className={styles.planIcon}
-            />
-            <p>10,000원/(월)</p>
-          </label>
-          <label className={styles.card}>
-            플러스
-            <input
-              type="radio"
-              name="plan"
-              value="plus"
-              className={styles.hidden}
-            />
-            <Image
-              src={IconAdvanced}
-              alt="plus-plan-image"
-              className={styles.planIcon}
-            />
-            <p>18,000원/(월)</p>
-          </label>
-          <label className={styles.card}>
-            프로
-            <input
-              type="radio"
-              name="plan"
-              value="pro"
-              className={styles.hidden}
-            />
-            <Image
-              src={IconPro}
-              alt="pro-plan-image"
-              className={styles.planIcon}
-            />
-            <p>25,000원/(월)</p>
-          </label>
-        </section>
-        <label className={styles.planToggleSection}>
-          <span className={styles.pros}>Monthly</span>
-          <input
-            type="checkbox"
-            name="payment-interval-monthly"
-            defaultChecked
-            className={styles.hidden}
-          />
-          <span className={styles.toggle}>
-            <span className={styles.slider}></span>
-          </span>
-          <span className={styles.cons}>Yearly</span>
-        </label>
-        <button
-          type="button"
-          onClick={() => {
-            router.push("/multi-step-form?step=1");
-          }}
-          className={styles.goBackButton}
-        >
-          이전 단계
-        </button>
-        <button type="submit" className={styles.submitButton}>
-          다음 단계
-        </button>
-      </form>
-    </section>
-  );
-
   const mainContent = (
     <>
-      {step1Content}
-      {step2Content}
+      <FormStepOne id={id} step={step} handleOnSubmit={handleOnSubmit} />
+      <FormStepTwo
+        id={id}
+        step={step}
+        handleOnSubmit={handleOnSubmit}
+        onClickGoBackButton={() => {
+          router.push("/multi-step-form?step=1");
+        }}
+      />
       {JSON.stringify(formState)}
     </>
   );
 
+  const leftNavigation = (
+    <nav className={styles.navContainer}>
+      <ul>
+        <li>
+          <Link
+            href="/multi-step-form?step=1"
+            aria-current={step === 1 ? "page" : undefined}
+          >
+            1단계 : 개인정보
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/multi-step-form?step=2"
+            aria-current={step === 2 ? "page" : undefined}
+          >
+            2단계 : 플랜 선택
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+
   return (
     <main className={styles.main}>
-      <nav className={styles.navContainer}>
-        <ul>
-          <li>
-            <Link
-              href="/multi-step-form?step=1"
-              aria-current={step === 1 ? "page" : undefined}
-            >
-              1단계 : 개인정보
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/multi-step-form?step=2"
-              aria-current={step === 2 ? "page" : undefined}
-            >
-              2단계 : 플랜 선택
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      {leftNavigation}
       {mainContent}
     </main>
   );
