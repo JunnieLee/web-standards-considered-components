@@ -162,7 +162,11 @@ export const FormContainer = () => {
             type="checkbox"
             name="payment-interval-monthly"
             defaultChecked
+            className={styles.hidden}
           />
+          <span className={styles.toggle}>
+            <span className={styles.slider}></span>
+          </span>
           <span className={styles.cons}>Yearly</span>
         </label>
         <button

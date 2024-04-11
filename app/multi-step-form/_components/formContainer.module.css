@@ -113,6 +113,7 @@
 }
 
 .pros {
+  width: 70px;
   margin-right: 10px;
   font-weight: 400;
 }
@@ -122,10 +123,46 @@ label:has(input:checked) .pros {
 }
 
 .cons {
+  width: 70px;
   font-weight: 600;
   margin-left: 10px;
 }
 
 label:has(input:checked) .cons {
   font-weight: 400;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: navy;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 30px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+label:has(input:checked) .slider:before {
+  transform: translateX(-26px);
 }
