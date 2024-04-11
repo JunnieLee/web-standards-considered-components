@@ -17,7 +17,7 @@
   flex: 1;
   flex-direction: column;
   padding: 40px;
-  background: gray;
+  background: #dedddc;
   border-radius: 11px;
   margin-left: 15px;
   position: relative;
@@ -165,4 +165,36 @@ label:has(input:checked) .cons {
 
 label:has(input:checked) .slider:before {
   transform: translateX(-26px);
+}
+
+.optionSection {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: "100%";
+  height: 80px;
+  border: 2px solid #c4c4c2;
+  background: white;
+  border-radius: 12px;
+  margin: 5px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.optionSection:has(input:checked) {
+  border-color: #d19cf0;
+  background: #e3ccf0;
+}
+
+.right {
+  position: absolute;
+  right: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
 }
