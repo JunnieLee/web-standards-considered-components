@@ -6,6 +6,7 @@ import styles from "./formContainer.module.css";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormStepOne } from "./FormStepOne";
 import { FormStepTwo } from "./FormStepTwo";
+import { FormStepThree } from "./FormStepThree";
 
 /**
  * 주문이나, 온보딩을 하는 폼
@@ -60,6 +61,14 @@ export const FormContainer = () => {
           router.push("/multi-step-form?step=1");
         }}
       />
+      <FormStepThree
+        id={id}
+        step={step}
+        handleOnSubmit={handleOnSubmit}
+        onClickGoBackButton={() => {
+          router.push("/multi-step-form?step=2");
+        }}
+      />
       {JSON.stringify(formState)}
     </>
   );
@@ -81,6 +90,22 @@ export const FormContainer = () => {
             aria-current={step === 2 ? "page" : undefined}
           >
             2단계 : 플랜 선택
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/multi-step-form?step=3"
+            aria-current={step === 3 ? "page" : undefined}
+          >
+            3단계 : 추가 옵션 선택
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/multi-step-form?step=4"
+            aria-current={step === 4 ? "page" : undefined}
+          >
+            4단계 : 요약
           </Link>
         </li>
       </ul>
