@@ -32,13 +32,31 @@ export const FormContainer = () => {
 
   const [formState, setFormState] = useState({});
 
+  const formDataToObject = (formData: FormData) => {
+    const obj: Record<string, any> = {};
+    for (const [key, value] of formData.entries()) {
+      if (key.endsWith("[]")) {
+        const fieldName = key.slice(0, -2);
+        if (obj[fieldName] === undefined) {
+          obj[fieldName] = [];
+        }
+        obj[fieldName].push(value);
+      } else {
+        obj[key] = value;
+      }
+    }
+    return obj;
+  };
+
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+    //formDataToObject(formData)
+    //console.log(Array.from(formData.entries()));
     // formData.entries() -> ex. [["username","김태희"],["email","rabolution@gmail.com"],["phoneNumber","010-4827-1733"]]
     setFormState((old) => ({
       ...old,
-      ...Object.fromEntries(formData), // ex. {"username":"김태희","email":"rabolution@gmail.com","phoneNumber":"010-4827-1733"}
+      ...formDataToObject(formData), // ex. {"username":"김태희","email":"rabolution@gmail.com","phoneNumber":"010-4827-1733"}
     }));
     if (step < 4) {
       alert(JSON.stringify(formState)); // tmp
@@ -69,7 +87,7 @@ export const FormContainer = () => {
           router.push("/multi-step-form?step=2");
         }}
       />
-      {JSON.stringify(formState)}
+      {/*JSON.stringify(formState)*/}
     </>
   );
 

@@ -39,7 +39,7 @@ export const FormStepThree = ({
           }}
         >
           <label className={styles.optionSection}>
-            <input type="checkbox" name="add-ons" value="online-service" />
+            <input type="checkbox" name="add-ons[]" value="online-service" />
             <section className={styles.column}>
               <h4>온라인 서비스</h4>
               <p>다중 사용자 접속 허용</p>
@@ -48,7 +48,7 @@ export const FormStepThree = ({
           </label>
 
           <label className={styles.optionSection}>
-            <input type="checkbox" name="add-ons" value="larger-storage" />
+            <input type="checkbox" name="add-ons[]" value="larger-storage" />
             <section className={styles.column}>
               <h4>더 넓은 저장공간</h4>
               <p>클라우드 저장용량 1TB 추가</p>
@@ -59,7 +59,7 @@ export const FormStepThree = ({
           <label className={styles.optionSection}>
             <input
               type="checkbox"
-              name="add-ons"
+              name="add-ons[]"
               value="customizable-profile"
             />
             <section className={styles.column}>
