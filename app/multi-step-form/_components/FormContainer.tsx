@@ -48,12 +48,21 @@ export const FormContainer = () => {
     return obj;
   };
 
+  const handleToggleInput = (formData: FormData) => {
+    const isPaymentIntervalMonthly = formData.has("payment-interval-monthly"); // true, false
+    formData.delete("payment-interval-monthly");
+    formData.set(
+      "payment-interval",
+      isPaymentIntervalMonthly ? "monthly" : "yearly"
+    );
+  };
+
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    //formDataToObject(formData)
-    //console.log(Array.from(formData.entries()));
-    // formData.entries() -> ex. [["username","김태희"],["email","rabolution@gmail.com"],["phoneNumber","010-4827-1733"]]
+    if (step === 2) {
+      handleToggleInput(formData);
+    }
     setFormState((old) => ({
       ...old,
       ...formDataToObject(formData), // ex. {"username":"김태희","email":"rabolution@gmail.com","phoneNumber":"010-4827-1733"}
