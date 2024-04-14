@@ -198,3 +198,21 @@ label:has(input:checked) .slider:before {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.paddingHorizontal {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.spaceBetweenRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectedPlan {
+  font-size: 18px;
+  font-weight: bold;
+  color: navy;
+}

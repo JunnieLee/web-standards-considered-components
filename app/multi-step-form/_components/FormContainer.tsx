@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FormStepOne } from "./FormStepOne";
 import { FormStepTwo } from "./FormStepTwo";
 import { FormStepThree } from "./FormStepThree";
+import { FormStepFour } from "./FormStepFour";
 
 /**
  * 주문이나, 온보딩을 하는 폼
@@ -65,7 +66,7 @@ export const FormContainer = () => {
     }
     setFormState((old) => ({
       ...old,
-      ...formDataToObject(formData), // ex. {"username":"김태희","email":"rabolution@gmail.com","phoneNumber":"010-4827-1733"}
+      ...formDataToObject(formData),
     }));
     if (step < 4) {
       alert(JSON.stringify(formState)); // tmp
@@ -73,7 +74,6 @@ export const FormContainer = () => {
     } else {
       // TODO :
       // 데이터 모두 수합해서 실제 서버에 submit
-      alert(JSON.stringify(formState)); // tmp
     }
   };
 
@@ -94,6 +94,14 @@ export const FormContainer = () => {
         handleOnSubmit={handleOnSubmit}
         onClickGoBackButton={() => {
           router.push("/multi-step-form?step=2");
+        }}
+      />
+      <FormStepFour
+        id={id}
+        step={step}
+        handleOnSubmit={handleOnSubmit}
+        onClickGoBackButton={() => {
+          router.push("/multi-step-form?step=3");
         }}
       />
       {/*JSON.stringify(formState)*/}
