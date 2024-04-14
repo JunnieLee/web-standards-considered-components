@@ -29,7 +29,7 @@ export const FormStepFour = ({
         <p id={id + "-description" + 4} className={styles.descriptionText}>
           선택하신 사항이 맞는지 결제 전에 다시한번 확인해주세요.
         </p>
-        <section
+        <div
           style={{
             display: "flex",
             flexDirection: "column",
@@ -84,7 +84,7 @@ export const FormStepFour = ({
             <h4>Total(per month)</h4>
             <span>+ 12달러/month</span>
           </section>
-        </section>
+        </div>
         <button
           type="button"
           onClick={onClickGoBackButton}

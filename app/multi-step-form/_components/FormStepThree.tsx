@@ -30,7 +30,7 @@ export const FormStepThree = ({
         <p id={id + "-description" + 3} className={styles.descriptionText}>
           추가옵션 선택을 통해 보다 편리하게 서비스를 이용하실 수 있습니다.
         </p>
-        <section
+        <div
           style={{
             display: "flex",
             flexDirection: "column",
@@ -68,7 +68,7 @@ export const FormStepThree = ({
             </section>
             <p className={styles.right}>30,000원/(월)</p>
           </label>
-        </section>
+        </div>
         <button
           type="button"
           onClick={onClickGoBackButton}

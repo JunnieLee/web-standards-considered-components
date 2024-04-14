@@ -30,7 +30,7 @@ export const FormStepTwo = ({
         <p id={id + "-description" + 2} className={styles.descriptionText}>
           연 단위, 달 단위의 플랜을 선택하실 수 있습니다.
         </p>
-        <section
+        <div
           style={{
             display: "flex",
             flexDirection: "row",
@@ -84,7 +84,7 @@ export const FormStepTwo = ({
             />
             <p>25,000원/(월)</p>
           </label>
-        </section>
+        </div>
         <label className={styles.planToggleSection}>
           <span className={styles.pros}>Monthly</span>
           <input

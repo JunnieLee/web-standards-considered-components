@@ -24,7 +24,7 @@ export const FormStepOne = ({
         <p id={id + "-description" + 1} className={styles.descriptionText}>
           고객님의 이름, 이메일 주소, 전화번호를 입력해주세요.
         </p>
-        <section className={styles.mainContent}>
+        <div className={styles.mainContent}>
           <label>
             이름
             <input name="username" placeholder="예) 홍길동" />
@@ -37,7 +37,7 @@ export const FormStepOne = ({
             전화번호
             <input name="phoneNumber" placeholder="예) 010-1234-5678" />
           </label>
-        </section>
+        </div>
         <button type="submit" className={styles.submitButton}>
           다음 단계
         </button>
