@@ -216,3 +216,8 @@ label:has(input:checked) .slider:before {
   font-weight: bold;
   color: navy;
 }
+
+.card:has(input[type="radio"]:checked) {
+  border: solid 3px #d19cf0;
+  background: #e3ccf0;
+}
