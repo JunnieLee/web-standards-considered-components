@@ -40,19 +40,19 @@ export const FormStepThree = ({
         >
           <label className={styles.optionSection}>
             <input type="checkbox" name="add-ons[]" value="online-service" />
-            <section className={styles.column}>
+            <div className={styles.column}>
               <h4>온라인 서비스</h4>
               <p>다중 사용자 접속 허용</p>
-            </section>
+            </div>
             <p className={styles.right}>10,000원/(월)</p>
           </label>
 
           <label className={styles.optionSection}>
             <input type="checkbox" name="add-ons[]" value="larger-storage" />
-            <section className={styles.column}>
+            <div className={styles.column}>
               <h4>더 넓은 저장공간</h4>
               <p>클라우드 저장용량 1TB 추가</p>
-            </section>
+            </div>
             <p className={styles.right}>20,000원/(월)</p>
           </label>
 
@@ -62,10 +62,10 @@ export const FormStepThree = ({
               name="add-ons[]"
               value="customizable-profile"
             />
-            <section className={styles.column}>
+            <div className={styles.column}>
               <h4>커스터마이징 가능한 프로필</h4>
               <p>프로필 테마 커스터마이징 가능</p>
-            </section>
+            </div>
             <p className={styles.right}>30,000원/(월)</p>
           </label>
         </div>
