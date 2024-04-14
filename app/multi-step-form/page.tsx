@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { FormContainer } from "./_components/FormContainer";
+import { MultiStepFormView } from "./_components/MultiStepFormView";
 
 export default function multiStepFormPage() {
   const pageTitle = (
@@ -53,7 +53,7 @@ export default function multiStepFormPage() {
     >
       {pageTitle}
       {guideSection}
-      <FormContainer />
+      <MultiStepFormView />
     </div>
   );
 }
