@@ -99,6 +99,7 @@ export const FormContainer = () => {
       <FormStepFour
         id={id}
         step={step}
+        formState={formState}
         handleOnSubmit={handleOnSubmit}
         onClickGoBackButton={() => {
           router.push("/multi-step-form?step=3");

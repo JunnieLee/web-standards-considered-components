@@ -5,11 +5,13 @@ import Link from "next/link";
 export const FormStepFour = ({
   id,
   step,
+  formState,
   handleOnSubmit,
   onClickGoBackButton,
 }: {
   id: string;
   step: number;
+  formState: Record<string, any>;
   handleOnSubmit: (event: FormEvent<HTMLFormElement>) => void;
   onClickGoBackButton: () => void;
 }) => {
@@ -46,7 +48,9 @@ export const FormStepFour = ({
           >
             <li className={styles.spaceBetweenRow}>
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <span className={styles.selectedPlan}>Arcade (Monthly)</span>
+                <span className={styles.selectedPlan}>
+                  {formState["plan"]} ({formState["payment-interval"]})
+                </span>
                 <Link
                   href="/multi-step-form?step=2"
                   style={{ textDecoration: "underline", color: "gray" }}
@@ -67,13 +71,12 @@ export const FormStepFour = ({
                 }}
               />
             </li>
-            <li className={styles.spaceBetweenRow}>
-              Online Service
-              <span>+ 2달러/month</span>
-            </li>
-            <li className={styles.spaceBetweenRow}>
-              Larger Storage <span>+ 2달러/month</span>
-            </li>
+            {formState["add-ons"].map((name: string) => (
+              <li className={styles.spaceBetweenRow} key={name}>
+                {name}
+                <span>+ 2달러/month</span>
+              </li>
+            ))}
           </ul>
           <section
             className={`${styles.spaceBetweenRow} ${styles.paddingHorizontal}`}
