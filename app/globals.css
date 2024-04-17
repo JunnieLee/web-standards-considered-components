@@ -152,7 +152,7 @@ li {
   padding-bottom: 15px;
 }
 
-input:invalid {
+input:invalid:not(:placeholder-shown) {
   border: 1px solid red;
   background-color: #ffeeee;
 }
