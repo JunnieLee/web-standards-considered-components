@@ -1,0 +1,223 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: white;
+  width: 60vw;
+  height: 550px;
+  border-radius: 11px;
+  padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  box-shadow: 2px 2px 2px 2px gray;
+}
+
+.stepSection {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 40px;
+  background: #dedddc;
+  border-radius: 11px;
+  margin-left: 15px;
+  position: relative;
+}
+
+.navContainer {
+  padding: 30px;
+  background-color: pink;
+  border-radius: 11px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+}
+
+.headerText {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.descriptionText {
+  font-size: 18px;
+}
+
+.submitButton {
+  padding: 10px 20px;
+  font-size: 15px;
+  background: navy;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  position: absolute;
+  right: 2vw;
+  bottom: 30px;
+}
+
+.goBackButton {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: gray;
+  border: 0px;
+  border-radius: 5px;
+  position: absolute;
+  left: 2vw;
+  bottom: 30px;
+}
+
+.card {
+  padding: 20px;
+  width: 150px;
+  height: 200px;
+  background: white;
+  border-radius: 12px;
+  margin: 15px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.planIcon {
+  width: 70px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: auto;
+  alignself: center;
+}
+
+.planToggleSection {
+  width: "100%";
+  background: lightGray;
+  border-radius: 11px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pros {
+  width: 70px;
+  margin-right: 10px;
+  font-weight: 400;
+}
+
+label:has(input:checked) .pros {
+  font-weight: 600;
+}
+
+.cons {
+  width: 70px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+label:has(input:checked) .cons {
+  font-weight: 400;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: navy;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 30px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+label:has(input:checked) .slider:before {
+  transform: translateX(-26px);
+}
+
+.optionSection {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: "100%";
+  height: 80px;
+  border: 2px solid #c4c4c2;
+  background: white;
+  border-radius: 12px;
+  margin: 5px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.optionSection:has(input:checked) {
+  border-color: #d19cf0;
+  background: #e3ccf0;
+}
+
+.right {
+  position: absolute;
+  right: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.paddingHorizontal {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.spaceBetweenRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectedPlan {
+  font-size: 18px;
+  font-weight: bold;
+  color: navy;
+}
+
+.card:has(input[type="radio"]:checked) {
+  border: solid 3px #d19cf0;
+  background: #e3ccf0;
+}
