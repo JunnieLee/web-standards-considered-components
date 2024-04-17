@@ -18,6 +18,19 @@ export const FormContainer = ({
 }) => {
   const id = useId();
 
+  const isRequiredFilled = (): boolean => {
+    let valid: boolean = true;
+    const inputs: NodeListOf<HTMLInputElement> =
+      document.querySelectorAll<HTMLInputElement>("input[required]"); // 이렇게 해서 못찾는것같음.... ㅠ
+    for (const input of inputs) {
+      if (input.value.trim() === "") {
+        valid = false;
+        break;
+      }
+    }
+    return valid;
+  };
+
   return (
     <section
       className={styles.stepSection}
@@ -25,7 +38,11 @@ export const FormContainer = ({
       aria-describedby={id + "-description"}
       aria-current={isFocused ? "step" : "false"}
     >
-      <form onSubmit={(event) => handleOnSubmit(event)}>
+      <form
+        onSubmit={(event) => {
+          if (isRequiredFilled()) handleOnSubmit(event);
+        }}
+      >
         <h3 id={id + "-title"} className={styles.headerText}>
           {title}
         </h3>
