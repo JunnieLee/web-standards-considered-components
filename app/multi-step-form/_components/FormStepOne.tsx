@@ -1,7 +1,10 @@
-import { FormEvent } from "react";
+"use client";
+
+import { FormEvent, useState } from "react";
 import styles from "./formContainer.module.css";
 
 export const FormStepOne = () => {
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
   return (
     <>
       <div className={styles.mainContent}>
@@ -15,7 +18,18 @@ export const FormStepOne = () => {
         </label>
         <label>
           전화번호
-          <input name="phoneNumber" placeholder="예) 010-1234-5678" />
+          <input
+            name="phoneNumber"
+            placeholder="예) 010-1234-5678"
+            required
+            onInvalid={() => setShowErrorMessage(true)}
+          />
+          <span
+            aria-current={showErrorMessage ? "true" : "false"}
+            className={styles.errorMessage}
+          >
+            * 전화번호는 필수입력 구간입니다.
+          </span>
         </label>
       </div>
       <button type="submit" className={styles.submitButton}>

@@ -123,6 +123,18 @@ section[aria-current="false"] {
   border-width: 0;
 }
 
+span[aria-current="false"] {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 label {
   display: block;
   margin-bottom: 20px;
@@ -141,7 +153,7 @@ li {
 }
 
 input:invalid {
-  border: 2px dashed red;
+  border: 2px solid red;
 }
 
 input:valid {
