@@ -22,6 +22,7 @@ export const FormStepOne = () => {
             name="phoneNumber"
             placeholder="예) 010-1234-5678"
             required
+            pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
             onInvalid={() => setShowErrorMessage(true)}
           />
           <span
