@@ -14,12 +14,7 @@ export const FormStepOne = () => {
         </label>
         <label>
           이메일 주소
-          <input
-            name="email"
-            placeholder="예) test@test.com"
-            pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-            required
-          />
+          <input name="email" type="email" placeholder="예) test@test.com" />
         </label>
         <label>
           전화번호
