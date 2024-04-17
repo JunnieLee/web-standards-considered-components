@@ -82,6 +82,7 @@ export const MultiStepFormView = () => {
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const formData = new FormData(event.currentTarget);
     if (step === 2) {
       handleToggleInput(formData);
