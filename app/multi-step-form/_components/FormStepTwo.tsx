@@ -10,6 +10,22 @@ export const FormStepTwo = ({
 }: {
   onClickGoBackButton: () => void;
 }) => {
+  const handleToggle = () => {
+    // (1) toggle 관련 radio input들 가지고 오기
+    const monthlyPaymentRadio = document.getElementById(
+      "payment-interval-monthly"
+    ) as HTMLInputElement;
+    const yearlyPaymentRadio = document.getElementById(
+      "payment-interval-yearly"
+    ) as HTMLInputElement;
+    // (2) check 상태 바꾸어주기 (토글처리)
+    if (monthlyPaymentRadio.checked) {
+      yearlyPaymentRadio.checked = true;
+    } else {
+      monthlyPaymentRadio.checked = true;
+    }
+  };
+
   return (
     <>
       <div
@@ -27,7 +43,7 @@ export const FormStepTwo = ({
             name="plan"
             value="basic"
             defaultChecked
-            className={styles.hidden}
+            className={"accessible-hidden"}
           />
           <Image
             src={IconArcade}
@@ -42,7 +58,7 @@ export const FormStepTwo = ({
             type="radio"
             name="plan"
             value="plus"
-            className={styles.hidden}
+            className={"accessible-hidden"}
           />
           <Image
             src={IconAdvanced}
@@ -57,7 +73,7 @@ export const FormStepTwo = ({
             type="radio"
             name="plan"
             value="pro"
-            className={styles.hidden}
+            className={"accessible-hidden"}
           />
           <Image
             src={IconPro}
@@ -67,19 +83,33 @@ export const FormStepTwo = ({
           <p>25,000원/(월)</p>
         </label>
       </div>
-      <label className={styles.planToggleSection}>
-        <span className={styles.pros}>Monthly</span>
-        <input
-          type="checkbox"
-          name="payment-interval-monthly"
-          defaultChecked
-          className={styles.hidden}
-        />
-        <span className={styles.toggle}>
+      <div className={styles.planToggleSection}>
+        <label className={styles.paymentIntervalLabel}>
+          Monthly
+          <input
+            id="payment-interval-monthly"
+            type="radio"
+            name="payment-interval"
+            value="monthly"
+            defaultChecked
+            className={"accessible-hidden"}
+          />
+        </label>
+        <button className={styles.toggle} type="button" onClick={handleToggle}>
           <span className={styles.slider}></span>
-        </span>
-        <span className={styles.cons}>Yearly</span>
-      </label>
+        </button>
+        <label className={styles.paymentIntervalLabel}>
+          Yearly
+          <input
+            id="payment-interval-yearly"
+            type="radio"
+            name="payment-interval"
+            value="yearly"
+            className={"accessible-hidden"}
+          />
+        </label>
+      </div>
+
       <button
         type="button"
         onClick={onClickGoBackButton}

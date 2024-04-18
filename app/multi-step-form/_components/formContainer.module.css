@@ -82,18 +82,6 @@
   flex-direction: column;
 }
 
-.hidden {
-  width: 1px;
-  height: 1px;
-  position: absolute;
-  overflow: hidden;
-  padding: 0;
-  margin: -1px;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
 .planIcon {
   width: 70px;
   margin-top: 15px;
@@ -112,24 +100,14 @@
   align-items: center;
 }
 
-.pros {
+.paymentIntervalLabel {
   width: 70px;
-  margin-right: 10px;
+  margin: 10px;
   font-weight: 400;
 }
 
-label:has(input:checked) .pros {
+.paymentIntervalLabel:has(input:checked) {
   font-weight: 600;
-}
-
-.cons {
-  width: 70px;
-  font-weight: 600;
-  margin-left: 10px;
-}
-
-label:has(input:checked) .cons {
-  font-weight: 400;
 }
 
 .toggle {
@@ -163,7 +141,7 @@ label:has(input:checked) .cons {
   border-radius: 50%;
 }
 
-label:has(input:checked) .slider:before {
+div:has(input[value="monthly"]:checked) .slider:before {
   transform: translateX(-26px);
 }
 
