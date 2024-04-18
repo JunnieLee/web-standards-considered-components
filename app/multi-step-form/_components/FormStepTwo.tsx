@@ -27,7 +27,7 @@ export const FormStepTwo = ({
             name="plan"
             value="basic"
             defaultChecked
-            className={styles.hidden}
+            className={"accessible-hidden"}
           />
           <Image
             src={IconArcade}
@@ -42,7 +42,7 @@ export const FormStepTwo = ({
             type="radio"
             name="plan"
             value="plus"
-            className={styles.hidden}
+            className={"accessible-hidden"}
           />
           <Image
             src={IconAdvanced}
@@ -57,7 +57,7 @@ export const FormStepTwo = ({
             type="radio"
             name="plan"
             value="pro"
-            className={styles.hidden}
+            className={"accessible-hidden"}
           />
           <Image
             src={IconPro}
@@ -73,7 +73,7 @@ export const FormStepTwo = ({
           type="checkbox"
           name="payment-interval-monthly"
           defaultChecked
-          className={styles.hidden}
+          className={"accessible-hidden"}
         />
         <span className={styles.toggle}>
           <span className={styles.slider}></span>
