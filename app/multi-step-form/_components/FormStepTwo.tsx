@@ -67,19 +67,31 @@ export const FormStepTwo = ({
           <p>25,000원/(월)</p>
         </label>
       </div>
-      <label className={styles.planToggleSection}>
-        <span className={styles.pros}>Monthly</span>
-        <input
-          type="checkbox"
-          name="payment-interval-monthly"
-          defaultChecked
-          className={"accessible-hidden"}
-        />
+      <div className={styles.planToggleSection}>
+        <label className={styles.paymentIntervalLabel}>
+          Monthly
+          <input
+            type="radio"
+            name="payment-interval"
+            value="monthly"
+            defaultChecked
+            className={"accessible-hidden"}
+          />
+        </label>
         <span className={styles.toggle}>
           <span className={styles.slider}></span>
         </span>
-        <span className={styles.cons}>Yearly</span>
-      </label>
+        <label className={styles.paymentIntervalLabel}>
+          Yearly
+          <input
+            type="radio"
+            name="payment-interval"
+            value="yearly"
+            className={"accessible-hidden"}
+          />
+        </label>
+      </div>
+
       <button
         type="button"
         onClick={onClickGoBackButton}

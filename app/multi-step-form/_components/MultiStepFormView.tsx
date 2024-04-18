@@ -71,22 +71,11 @@ export const MultiStepFormView = () => {
     return obj;
   };
 
-  const handleToggleInput = (formData: FormData) => {
-    const isPaymentIntervalMonthly = formData.has("payment-interval-monthly"); // true, false
-    formData.delete("payment-interval-monthly");
-    formData.set(
-      "payment-interval",
-      isPaymentIntervalMonthly ? "monthly" : "yearly"
-    );
-  };
-
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    if (step === 2) {
-      handleToggleInput(formData);
-    }
+
     setFormState((old) => ({
       ...old,
       ...formDataToObject(formData),

@@ -100,24 +100,14 @@
   align-items: center;
 }
 
-.pros {
+.paymentIntervalLabel {
   width: 70px;
-  margin-right: 10px;
+  margin: 10px;
   font-weight: 400;
 }
 
-label:has(input:checked) .pros {
+.paymentIntervalLabel:has(input:checked) {
   font-weight: 600;
-}
-
-.cons {
-  width: 70px;
-  font-weight: 600;
-  margin-left: 10px;
-}
-
-label:has(input:checked) .cons {
-  font-weight: 400;
 }
 
 .toggle {
@@ -151,7 +141,7 @@ label:has(input:checked) .cons {
   border-radius: 50%;
 }
 
-label:has(input:checked) .slider:before {
+div:has(input[value="monthly"]:checked) .slider:before {
   transform: translateX(-26px);
 }
 
