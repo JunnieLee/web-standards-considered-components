@@ -10,6 +10,22 @@ export const FormStepTwo = ({
 }: {
   onClickGoBackButton: () => void;
 }) => {
+  const handleToggle = () => {
+    // (1) toggle 관련 radio input들 가지고 오기
+    const monthlyPaymentRadio = document.getElementById(
+      "payment-interval-monthly"
+    ) as HTMLInputElement;
+    const yearlyPaymentRadio = document.getElementById(
+      "payment-interval-yearly"
+    ) as HTMLInputElement;
+    // (2) check 상태 바꾸어주기 (토글처리)
+    if (monthlyPaymentRadio.checked) {
+      yearlyPaymentRadio.checked = true;
+    } else {
+      monthlyPaymentRadio.checked = true;
+    }
+  };
+
   return (
     <>
       <div
@@ -71,6 +87,7 @@ export const FormStepTwo = ({
         <label className={styles.paymentIntervalLabel}>
           Monthly
           <input
+            id="payment-interval-monthly"
             type="radio"
             name="payment-interval"
             value="monthly"
@@ -78,12 +95,13 @@ export const FormStepTwo = ({
             className={"accessible-hidden"}
           />
         </label>
-        <span className={styles.toggle}>
+        <button className={styles.toggle} type="button" onClick={handleToggle}>
           <span className={styles.slider}></span>
-        </span>
+        </button>
         <label className={styles.paymentIntervalLabel}>
           Yearly
           <input
+            id="payment-interval-yearly"
             type="radio"
             name="payment-interval"
             value="yearly"
